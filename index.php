@@ -1,3 +1,12 @@
+<?php
+include("conexion.php");
+$con=conectar();
+
+$sql="SELECT * from producto";
+$result=mysqli_query($con,$sql);
+		
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,7 +22,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body>
+    <body >
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-lg-5">
@@ -78,21 +87,40 @@
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                <img src="imagenes/productos/aceite.jpg" width="200" height="200">
-                                <h2 class="fs-4 fw-bold">Aceite</h2>
-                                <p class="mb-0">-</p><input type="button" value="Agredar">
+                                <script>
+                                    function traer_algo() {
+                                        var xhttp = new XMLHttpRequest();
+                                        xhttp.onreadystatechange = function() {
+                                          if (this.readyState == 4 && this.status == 200) {
+                                           document.getElementById("contenido").innerHTML = (this.responseText);
+                                           console.log((this.responseText));
+                                          }
+                                        };
+                                        xhttp.open("POST", "ejemplo.php", true);
+                                        xhttp.send();
+                                      }
+                                    </script>
+                                <img src="imagenes/productos/aceite.jpg" width="200" height="200" onload="traer_algo()" >
+                                <h2 id="contenido" class="fs-4 fw-bold" ></h2>
+                                <p class="mb-0">-</p><input type="button" value="Agredar" >
                             </div>
                         </div>
                     </div>
+                    <?php
+                    while($mostrar=mysqli_fetch_array($result)){
+                    ?>
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                <img src="imagenes/productos/jamon.jpg" width="200" height="200">
-                                <h2 class="fs-4 fw-bold">Jamón </h2>
+                                <img src="imagenes/productos/<?=$mostrar['imagen']?>" width="200" height="200">
+                                <h2 class="fs-4 fw-bold"><?=$mostrar['nombre_producto']?> </h2>
                                 <p class="mb-0">Q.15.00 </p><input type="button" value="Agredar">
                             </div>
                         </div>
                     </div>
+                    <?php
+                    }
+                    ?>
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
@@ -140,20 +168,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        
     </body>
 </html>
 
 
-<script>
-    function traer_algo() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-           document.getElementById("contenido").innerHTML = (this.responseText);
-           console.log(JSON.parse(this.responseText));
-          }
-        };
-        xhttp.open("POST", "mostrar_id_admin.php", true);
-        xhttp.send();
-      }
-    </script>
