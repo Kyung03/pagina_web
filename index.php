@@ -1,4 +1,7 @@
 <?php
+//if(isset($_SESSION['idusuario']))
+session_start();
+echo $_SESSION['idusuario'];
 include("conexion.php");
 $con=conectar();
 
@@ -31,7 +34,18 @@ $result=mysqli_query($con,$sql);
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">                <img src="imagenes/menu/carrito.png"    width="40" height="40"></a></li>
-                        <li class="nav-item"><a class="nav-link"                            href="inicio_sesion.html"><img src="imagenes/menu/registro.png"   width="40" height="40"></a></li>
+                        <?php
+                        if(isset($_SESSION['idusuario'])){
+                        ?>
+                        <li class="nav-item"><a class="nav-link"                            href="index.php"><img src="imagenes/menu/carrito.png"   width="40" height="40"></a></li>
+                        <?php    
+                        }
+                        else{
+
+                        
+                        ?>
+                        <li class="nav-item"><a class="nav-link"                            href="inicio_sesion.php"><img src="imagenes/menu/registro.png"   width="40" height="40"></a></li>
+                        <?php } ?>
                         <li class="nav-item"><a class="nav-link"                            href="#!">                <img src="imagenes/menu/reclamo.png"    width="40" height="40"></a></li>
                     </ul>
                     
@@ -52,10 +66,10 @@ $result=mysqli_query($con,$sql);
                         <nav>
                             <ull id="mainMenu">
                                 <lii><a class="btn btn-primary btn-lg"  href="inicio_sesion.html">  <font size=2 face="Georgia"><img src="imagenes/categorias/des.png"            width="70" height="70">Despensa         </font></a></lii> 
-                                <lii><a class="btn btn-primary btn-lg"  href="services.html">       <font size=4 face="Georgia"><img src="imagenes/categorias/carne.png"          width="70" height="70">Carne            </font></a></lii>
+                                <lii><a class="btn btn-primary btn-lg"  href="services.html">       <font size=3 face="Georgia"><img src="imagenes/categorias/carne.png"          width="70" height="70">Carne            </font></a></lii>
                                 <lii><a class="btn btn-primary btn-lg"  href="products.html">       <font size=2 face="Georgia"><img src="imagenes/categorias/pez.png"            width="70" height="70">Pescados         </font></a></lii>
                                 <lii><a class="btn btn-primary btn-lg"  href="support.html">        <font size=2 face="Georgia"><img src="imagenes/categorias/bebidas.png"        width="70" height="70">Bebidas          </font></a></lii>
-                                <lii><a class="btn btn-primary btn-lg"  href="blog.html">           <font size=4 face="Georgia"><img src="imagenes/categorias/frutas.png"         width="70" height="70">Frutas           </font></a></lii>
+                                <lii><a class="btn btn-primary btn-lg"  href="blog.html">           <font size=3 face="Georgia"><img src="imagenes/categorias/frutas.png"         width="70" height="70">Frutas           </font></a></lii>
                                 <lii><a class="btn btn-primary btn-lg"  href="blog.html">           <font size=2 face="Georgia"><img src="imagenes/categorias/verduras.png"         width="70" height="70">Verduras         </font></a></lii>
                                 <lii><a class="btn btn-primary btn-lg"  href="about.html">          <font size=2 face="Georgia"><img src="imagenes/categorias/higiene.png"        width="70" height="70">Higiene          </font></a></lii>
                                 <lii><a class="btn btn-primary btn-lg"  href="contact.html">        <font size=2 face="Georgia"><img src="imagenes/categorias/limpieza.png"       width="70" height="70">Limpieza         </font></a></lii>
