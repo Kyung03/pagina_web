@@ -1,7 +1,7 @@
 <?php
 //if(isset($_SESSION['idusuario']))
 session_start();
-echo $_SESSION['idusuario'];
+//echo $_SESSION['idusuario'];
 include("conexion.php");
 $con=conectar();
 
@@ -37,7 +37,7 @@ $result=mysqli_query($con,$sql);
                         <?php
                         if(isset($_SESSION['idusuario'])){
                         ?>
-                        <li class="nav-item"><a class="nav-link"                            href="index.php"><img src="imagenes/menu/carrito.png"   width="40" height="40"></a></li>
+                        <li class="nav-item"><a class="nav-link"                            href="index.php"><img src="imagenes/usuario/usuario.png"   width="40" height="40"></a></li>
                         <?php    
                         }
                         else{
@@ -62,115 +62,107 @@ $result=mysqli_query($con,$sql);
                       <!--   <p class="fs-4">Informacion</p>
                       <!--  <a class="btn btn-primary btn-lg" href="#!">Ingresar</a>-->
                       <!-- Categorias  -->
-                      <center>
+                        <center>
                         <nav>
-                            <ull id="mainMenu">
+                            <ull >
                                 <lii><a class="btn btn-primary btn-lg"  href="inicio_sesion.html">  <font size=2 face="Georgia"><img src="imagenes/categorias/des.png"            width="70" height="70">Despensa         </font></a></lii> 
-                                <lii><a class="btn btn-primary btn-lg"  href="services.html">       <font size=3 face="Georgia"><img src="imagenes/categorias/carne.png"          width="70" height="70">Carne            </font></a></lii>
+                                <lii><a class="btn btn-primary btn-lg"  href="services.html">       <font size=3 face="Georgia"><img src="imagenes/categorias/carne2.png"         width="70" height="70">Carne            </font></a></lii>
                                 <lii><a class="btn btn-primary btn-lg"  href="products.html">       <font size=2 face="Georgia"><img src="imagenes/categorias/pez.png"            width="70" height="70">Pescados         </font></a></lii>
                                 <lii><a class="btn btn-primary btn-lg"  href="support.html">        <font size=2 face="Georgia"><img src="imagenes/categorias/bebidas.png"        width="70" height="70">Bebidas          </font></a></lii>
                                 <lii><a class="btn btn-primary btn-lg"  href="blog.html">           <font size=3 face="Georgia"><img src="imagenes/categorias/frutas.png"         width="70" height="70">Frutas           </font></a></lii>
-                                <lii><a class="btn btn-primary btn-lg"  href="blog.html">           <font size=2 face="Georgia"><img src="imagenes/categorias/verduras.png"         width="70" height="70">Verduras         </font></a></lii>
+                                <lii><a class="btn btn-primary btn-lg"  href="blog.html">           <font size=2 face="Georgia"><img src="imagenes/categorias/verduras.png"       width="70" height="70">Verduras         </font></a></lii>
                                 <lii><a class="btn btn-primary btn-lg"  href="about.html">          <font size=2 face="Georgia"><img src="imagenes/categorias/higiene.png"        width="70" height="70">Higiene          </font></a></lii>
                                 <lii><a class="btn btn-primary btn-lg"  href="contact.html">        <font size=2 face="Georgia"><img src="imagenes/categorias/limpieza.png"       width="70" height="70">Limpieza         </font></a></lii>
                             </ull>
                         </nav>
-                    </center>
-                    <br>
+                        </center>
 
-                    </div>
-                        
-                        
+                    </div>      
                 </div>
-                
             </div>
-                
         </header>
         
         <!-- Page Content-->
-       
-        <section class="pt-4">
-            <div class="container px-lg-5">
-                <!-- Page Features-->
+       <!-- BARRA DE BUSQUEDA -->
                 <center> 
-                <!--  <label for="fname">Buscar producto:</label>-->
                 <input type="text" id="fname" name="fname" value="">
                 <input type="submit" value="Buscar"><br>
                 </center>
+        <section class="pt-4">
+            <div class="container px-lg-5">
+                <!-- Page Features-->
                 <div class="row gx-lg-5">
-                    <div class="col-lg-6 col-xxl-4 mb-5">
-                        <div class="card bg-light border-0 h-100">
-                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                <script>
-                                    function traer_algo() {
-                                        var xhttp = new XMLHttpRequest();
-                                        xhttp.onreadystatechange = function() {
-                                          if (this.readyState == 4 && this.status == 200) {
-                                           document.getElementById("contenido").innerHTML = (this.responseText);
-                                           console.log((this.responseText));
-                                          }
-                                        };
-                                        xhttp.open("POST", "ejemplo.php", true);
-                                        xhttp.send();
-                                      }
-                                    </script>
-                                <img src="imagenes/productos/aceite.jpg" width="200" height="200" onload="traer_algo()" >
-                                <h2 id="contenido" class="fs-4 fw-bold" ></h2>
-                                <p class="mb-0">-</p><input type="button" value="Agredar" >
-                            </div>
-                        </div>
-                    </div>
-                    <?php
+                <?php
                     while($mostrar=mysqli_fetch_array($result)){
                     ?>
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <!-- llama la imagen de su carpeta -->
                                 <img src="imagenes/productos/<?=$mostrar['imagen']?>" width="200" height="200">
+                                <!-- llama el nombre del producto de la base de datos -->
                                 <h2 class="fs-4 fw-bold"><?=$mostrar['nombre_producto']?> </h2>
-                                <p class="mb-0">Q.15.00 </p><input type="button" value="Agredar">
+                                <!-- llama el precio del producto de la base de datos -->
+                                <p class="mb-0">Q.<?=$mostrar['precio_producto']?> </p>
+                                <input type="button" value="Agregar">
                             </div>
                         </div>
                     </div>
                     <?php
                     }
                     ?>
+
+                    <!--
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <img src="imagenes/productos/jabon.jpg" width="200" height="200">
                                 <h2 class="fs-4 fw-bold">Jabón</h2>
-                                <p class="mb-0">-</p><input type="button" value="Agredar">
+                                <p class="mb-0">-</p><input type="button" value="Agregar">
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <img src="imagenes/productos/jabon.jpg" width="200" height="200">
+                                <h2 class="fs-4 fw-bold">Jabón</h2>
+                                <p class="mb-0">-</p><input type="button" value="Agregar">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <img src="imagenes/productos/gas.jpg" width="200" height="200">
                                 <h2 class="fs-4 fw-bold">Gaseosa</h2>
-                                <p class="mb-0">-</p><input type="button" value="Agredar">
+                                <p class="mb-0">-</p><input type="button" value="Agregar">
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <img src="imagenes/productos/harina.jpg" width="200" height="200">
                                 <h2 class="fs-4 fw-bold">Harina</h2>
-                                <p class="mb-0">-</p><input type="button" value="Agredar">
+                                <p class="mb-0">-</p><input type="button" value="Agregar">
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <img src="imagenes/productos/atun.jpg" width="200" height="200">
                                 <h2 class="fs-4 fw-bold">Atún</h2>
-                                <p class="mb-0">-</p><input type="button" value="Agredar">
+                                <p class="mb-0">-</p><input type="button" value="Agregar">
                             </div>
                         </div>
                     </div>
+                    -->
                 </div>
             </div>
         </section>
