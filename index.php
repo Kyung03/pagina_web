@@ -1,11 +1,8 @@
 <?php
 //if(isset($_SESSION['idusuario']))
 session_start();
-<<<<<<< HEAD
 
-=======
 //echo $_SESSION['idusuario'];
->>>>>>> f9eb8c751c7ad0b7c9125ddeeb391475b0f244d1
 include("conexion.php");
 $con=conectar();
 
@@ -41,11 +38,8 @@ $result=mysqli_query($con,$sql);
                         <?php
                         if(isset($_SESSION['idusuario'])){
                         ?>
-<<<<<<< HEAD
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">                <img src="imagenes/menu/check.png"    width="40" height="40"></a></li>
-=======
                         <li class="nav-item"><a class="nav-link"                            href="index.php"><img src="imagenes/usuario/usuario.png"   width="40" height="40"></a></li>
->>>>>>> f9eb8c751c7ad0b7c9125ddeeb391475b0f244d1
                         <?php    
                         }
                         else{
