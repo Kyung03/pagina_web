@@ -1,7 +1,7 @@
 <?php
 //if(isset($_SESSION['idusuario']))
 session_start();
-echo $_SESSION['idusuario'];
+
 include("conexion.php");
 $con=conectar();
 
@@ -33,21 +33,22 @@ $result=mysqli_query($con,$sql);
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">                <img src="imagenes/menu/carrito.png"    width="40" height="40"></a></li>
+                    
                         <?php
                         if(isset($_SESSION['idusuario'])){
                         ?>
-                        <li class="nav-item"><a class="nav-link"                            href="index.php"><img src="imagenes/menu/carrito.png"   width="40" height="40"></a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">                <img src="imagenes/menu/check.png"    width="40" height="40"></a></li>
                         <?php    
                         }
                         else{
-
-                        
                         ?>
-                        <li class="nav-item"><a class="nav-link"                            href="inicio_sesion.php"><img src="imagenes/menu/registro.png"   width="40" height="40"></a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">                <img src="imagenes/menu/x.png"    width="40" height="40"></a></li>
                         <?php } ?>
-                        <li class="nav-item"><a class="nav-link"                            href="#!">                <img src="imagenes/menu/reclamo.png"    width="40" height="40"></a></li>
-                    </ul>
+                            
+                            <li class="nav-item"><a class="nav-link"                            href="inicio_sesion.php"><img src="imagenes/menu/registro.png"   width="40" height="40"></a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">                <img src="imagenes/menu/carrito.png"    width="40" height="40"></a></li>
+                            <li class="nav-item"><a class="nav-link"                            href="#!">                <img src="imagenes/menu/reclamo.png"    width="40" height="40"></a></li>
+                     </ul>
                     
                 </div>
                 
