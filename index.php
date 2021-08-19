@@ -86,6 +86,12 @@ $result=mysqli_query($con,$sql);
         </header>
         
         <!-- Page Content-->
+        <!-- BOTON DE ORDENAMIENTO -->
+        <center> 
+        <input type="button" value="Alfabetico" onclick="location.href='orden_alfabetico.php'">
+        <input type="button" value="Precio" onclick="location.href='orden_precio.php'">
+        <br><br>
+        </center>
        <!-- BARRA DE BUSQUEDA -->
                 <form action="buscar.php" method="post">
                 <center> 

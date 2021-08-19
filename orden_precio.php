@@ -6,7 +6,7 @@ session_start();
 include("conexion.php");
 $con=conectar();
 
-$sql="SELECT * from producto where Tipo_producto='Carne'";
+$sql="SELECT * from producto order by precio_producto";
 $result=mysqli_query($con,$sql);
 		
 ?>
@@ -61,7 +61,7 @@ $result=mysqli_query($con,$sql);
             <div class="container px-lg-5">
                 <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
                     <div class="m-4 m-lg-5">
-                        <h1 class="display-5 fw-bold">Bienvenido</h1>
+                        <h1 class="display-5 fw-bold">Orden por precio mas bajo</h1>
                       <!--   <p class="fs-4">Informacion</p>
                       <!--  <a class="btn btn-primary btn-lg" href="#!">Ingresar</a>-->
                       <!-- Categorias  -->
@@ -93,7 +93,7 @@ $result=mysqli_query($con,$sql);
         <br><br>
         </center>
        <!-- BARRA DE BUSQUEDA -->
-       <form action="buscar.php" method="post">
+                <form action="buscar.php" method="post">
                 <center> 
                 <input type="text" id="fname" name="fname" value="">
                 <input type="submit" value="Buscar"><br>
