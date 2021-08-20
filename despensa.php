@@ -6,7 +6,7 @@ session_start();
 include("conexion.php");
 $con=conectar();
 
-$sql="SELECT * from producto where Tipo_producto='Despensa'";
+$sql="SELECT * from producto where Tipo_producto='Despensa' ";
 $result=mysqli_query($con,$sql);
 		
 ?>
