@@ -36,18 +36,19 @@ $result=mysqli_query($con,$sql);
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     
                         <?php
-                        if(isset($_SESSION['idusuario'])){
+                        if(isset($_SESSION['idusuario']) ){
                         ?>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">                <img src="imagenes/menu/check.png"    width="40" height="40"></a></li>
-                        <li class="nav-item"><a class="nav-link"                            href="index.php"><img src="imagenes/usuario/usuario.png"   width="40" height="40"></a></li>
+                        <li class="nav-item"><a class="nav-link" href="cerrar_sesion.php"><img src="imagenes/menu/atras.png"   width="40" height="40"></a></li>
+
+                           
                         <?php    
                         }
                         else{
                         ?>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">                <img src="imagenes/menu/x.png"    width="40" height="40"></a></li>
+                        <li class="nav-item"><a class="nav-link"                            href="inicio_sesion.php"><img src="imagenes/menu/registro.png"   width="40" height="40"></a></li>
+                            
                         <?php } ?>
                             
-                            <li class="nav-item"><a class="nav-link"                            href="inicio_sesion.php"><img src="imagenes/menu/registro.png"   width="40" height="40"></a></li>
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">                <img src="imagenes/menu/carrito.png"    width="40" height="40"></a></li>
                             <li class="nav-item"><a class="nav-link"                            href="#!">                <img src="imagenes/menu/reclamo.png"    width="40" height="40"></a></li>
                      </ul>
