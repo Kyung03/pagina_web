@@ -1,14 +1,17 @@
 <?php
 function consulta(){
-    
+    //header('location:index.php?valor=principal');
     
     if(is_null($mivalor = $_GET["valor"])){
-        $mivalor=0;
-    }else{
-        $mivalor = $_GET["valor"];
+        header('location:index.php?valor=principal');
+    }else {
+    $mivalor = $_GET["valor"];
     }
 
     switch($mivalor){
+        case "principal":$query="SELECT * from producto ";
+
+            break;
         case "despensa": $query="SELECT * from producto where Tipo_producto='Despensa' ";
             break;
         case "Carne": $query="SELECT * from producto where Tipo_producto='Carne'";
