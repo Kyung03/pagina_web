@@ -1,7 +1,7 @@
 <?php
 function consulta(){
     //header('location:index.php?valor=principal');
-    $nombre=$_POST['fname'];
+    
     if(is_null($mivalor = $_GET["valor"])){
         header('location:index.php?valor=principal');
     }else {
@@ -31,8 +31,6 @@ function consulta(){
         case "precio_producto": $query="SELECT * from producto order by precio_producto";
             break;
         case "nombre_producto": $query="SELECT * from producto order by nombre_producto";
-            break;
-        case "buscar_producto": $query="SELECT * from producto where nombre_producto='$nombre'";
             break;
         default: $query="SELECT * from producto ";
             break;
