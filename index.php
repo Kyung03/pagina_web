@@ -110,8 +110,8 @@ $result=mysqli_query($con,$query);
         <br>
         <!-- BOTON DE ORDENAMIENTO -->
         <center> 
-        <input type="button" value="Alfabetico" onclick="location.href='index.php?valor=precio_producto'">
-        <input type="button" value="Precio" onclick="location.href='index.php?valor=nombre_producto'">
+        <input type="button" value="Precio" onclick="location.href='index.php?valor=precio_producto'">
+        <input type="button" value="Alfabetico" onclick="location.href='index.php?valor=nombre_producto'">
         <br><br>
         </center>
        <!-- BARRA DE BUSQUEDA -->

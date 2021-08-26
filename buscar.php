@@ -6,7 +6,7 @@ session_start();
 include("conexion.php");
 $con=conectar();
 $nombre=$_POST['fname'];
-$sql="SELECT * from producto where nombre_producto='$nombre'";
+$sql="SELECT * from producto where nombre_producto like '%$nombre%'";
 $result=mysqli_query($con,$sql);
 
 
