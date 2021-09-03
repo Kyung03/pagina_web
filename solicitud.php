@@ -3,16 +3,9 @@
 session_start();
 
 //echo $_SESSION['idusuario'];
-//echo $_SESSION['nombre_de_usuario'];
-//die();
 include("conexion.php");
 $con=conectar();
-include("consulta.php");
-$query=consulta();
-
-
-
-$result=mysqli_query($con,$query);
+include("consulta.php"); 
 		
 ?>
 <!DOCTYPE html>
@@ -31,7 +24,7 @@ $result=mysqli_query($con,$query);
     <title>Supermercado web</title>
 </head>
 
-<body>
+<body onload="botonOFF()">
 
     <header>
         <div class="container">
@@ -49,8 +42,8 @@ $result=mysqli_query($con,$query);
                         if(isset($_SESSION['idusuario']) ){
                         ?>
                         <li class="nav-item"><a class="nav-link" href="cerrar_sesion.php"><img src="imagenes/menu/atras.png"   width="40" height="40"></a></li>
-                        <li class="nav-item"> <a class="nav-link">Usuario:  <?= $_SESSION['nombre_de_usuario']; ?></a> </li>
-                        
+
+                           
                         <?php    
                         }
                         else{
@@ -76,7 +69,8 @@ $result=mysqli_query($con,$query);
                                     </table>
 
                                     <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
-                                    <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar  Compra</a>
+                                    <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
+                                        Compra</a>
                                 </div>
                                 <li class="nav-item"><a class="nav-link"                            href="#!">                <img src="imagenes/menu/reclamo.png"    width="40" height="40"></a></li>
                             </li>
@@ -90,62 +84,45 @@ $result=mysqli_query($con,$query);
     <main>
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 my-4 mx-auto text-center">
             
-            <h1 class="display-4 mt-4">Lista de Productos</h1>
-            <p class="lead">Selecciona uno de nuestros productos y accede a un descuento </p>
+             
         </div>
-        <!-- Categorias  -->
-        <center>
-        <nav>
-        <ull >
-        <lii><a class="btn btn-primary btn-lg"  href="index.php?valor=despensa" >  <font size=2 face="Georgia"><img src="imagenes/categorias/des.png"            width="70" height="70">Despensa         </font></a></lii> 
-        <lii><a class="btn btn-primary btn-lg"  href="index.php?valor=Carne"  >       <font size=3 face="Georgia"><img src="imagenes/categorias/carne2.png"         width="70" height="70">Carne            </font></a></lii>
-        <lii><a class="btn btn-primary btn-lg"  href="index.php?valor=Pescados"  >       <font size=2 face="Georgia"><img src="imagenes/categorias/pez.png"            width="70" height="70">Pescados         </font></a></lii>
-        <lii><a class="btn btn-primary btn-lg"  href="index.php?valor=Bebidas"  >        <font size=2 face="Georgia"><img src="imagenes/categorias/bebidas.png"        width="70" height="70">Bebidas          </font></a></lii>
-        <lii><a class="btn btn-primary btn-lg"  href="index.php?valor=Frutas"  >           <font size=3 face="Georgia"><img src="imagenes/categorias/frutas.png"         width="70" height="70">Frutas           </font></a></lii>
-        <lii><a class="btn btn-primary btn-lg"  href="index.php?valor=Verduras"  >           <font size=2 face="Georgia"><img src="imagenes/categorias/verduras.png"       width="70" height="70">Verduras         </font></a></lii>
-        <lii><a class="btn btn-primary btn-lg"  href="index.php?valor=Higiene"  >          <font size=2 face="Georgia"><img src="imagenes/categorias/higiene.png"        width="70" height="70">Higiene          </font></a></lii>
-        <lii><a class="btn btn-primary btn-lg"  href="index.php?valor=Limpieza"  >        <font size=2 face="Georgia"><img src="imagenes/categorias/limpieza.png"       width="70" height="70">Limpieza         </font></a></lii>
-        </ull>
-        </nav>
-        </center>
-        <br>
-        <!-- BOTON DE ORDENAMIENTO -->
-        <center> 
-        <input type="button" value="Precio" onclick="location.href='index.php?valor=precio_producto'">
-        <input type="button" value="Alfabetico" onclick="location.href='index.php?valor=nombre_producto'">
-        <br><br>
-        </center>
-       <!-- BARRA DE BUSQUEDA -->
-        <form action="buscar.php" method="post">
-        <center> 
-        <input type="text" id="fname" name="fname" value="">
-        <input type="submit" value="Buscar"><br>
-        </center>
-        </form>
-        <br><br>
-        <div class="container" id="lista-productos">
-            
-            <div class="card-deck mb-3 text-center">
-            <?php
-                while($mostrar=mysqli_fetch_array($result)){
-                ?>
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-bold"><?=$mostrar['nombre_producto']?></h4>
-                    </div>
-                    <div class="card-body">
-                        <img src="imagenes/productos/<?=$mostrar['imagen']?>"  class="card-img-top">
-                        <h1 class="card-title pricing-card-title precio">Q/. <span class=""><?=$mostrar['precio_producto']?></span></h1>
-
-                        <a href="" class="btn btn-block btn-primary agregar-carrito" data-id="<?=$mostrar['codigo_producto']?>">Comprar</a>
-                    </div>
-                </div>
-                <?php
+        
+       
+        <form action="registrar_solicitud.php" method="POST"> 
+                    <center> 
+                    <h1 class="display-5 fw-bold">Registrar datos</h1>
+                    <label for="nombreU">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" value="">
+                    <br><br>
+                    <label for="apellidoU">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" value="">
+                    <br><br>
+                    <label for="correoU">Correo: </label>
+                    <input type="text" id="correo" name="correo" value="">
+                    <br><br>
+                    <label for="telU">Telefono:</label>
+                    <input type="text" id="tel" name="tel" value="">
+                    <br><br>
+                    <label for="dirU">Dirección:</label>
+                    <input type="text" id="dir" name="dir" value=""> 
+                    <br><br>
+                    <label for="dirU">Ciudad:</label>
+                    <select name=ciudad>
+                    <option value='0'>Seleccione</option>
+                    <?php 
+                    $sql2="SELECT nombre_ciudad FROM `ciudad` ";
+                    $result2=mysqli_query($con,$sql2);
+                    while($mostrar2=mysqli_fetch_array($result2)){
+                        echo '<option value="'.$mostrar2['nombre_ciudad'].'">'.$mostrar2['nombre_ciudad'].'</option>'; 
                     }
-                ?>
-            </div>
-
-        </div> <!-- no borrar --->
+                    ?>
+                    </select><br>
+                    
+                    <button class="btn btn-primary btn-lg" type="submit" id="myBtn">Ingresar</button>
+                    
+                    </center>
+                   
+                </form> 
     </main>
 
     <div id="con">
@@ -167,3 +144,25 @@ $result=mysqli_query($con,$query);
 </body>
 
 </html>
+
+<script>
+let seleccionar = document.querySelector('select');
+let collection = seleccionar.selectedOptions;
+seleccionar.addEventListener('change', seleccion_ciudad);
+
+function seleccion_ciudad() {
+  let eleccion = seleccionar.value;
+  if (eleccion === '0') {
+    botonOFF();
+  } else  {
+    botonON();
+  } 
+}
+
+function botonON() {
+  document.getElementById("myBtn").disabled = false;
+}
+function botonOFF() {
+  document.getElementById("myBtn").disabled = true;
+}
+</script>

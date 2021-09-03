@@ -3,16 +3,12 @@
 session_start();
 
 //echo $_SESSION['idusuario'];
-//echo $_SESSION['nombre_de_usuario'];
-//die();
 include("conexion.php");
 $con=conectar();
 include("consulta.php");
-$query=consulta();
 
 
 
-$result=mysqli_query($con,$query);
 		
 ?>
 <!DOCTYPE html>
@@ -49,8 +45,8 @@ $result=mysqli_query($con,$query);
                         if(isset($_SESSION['idusuario']) ){
                         ?>
                         <li class="nav-item"><a class="nav-link" href="cerrar_sesion.php"><img src="imagenes/menu/atras.png"   width="40" height="40"></a></li>
-                        <li class="nav-item"> <a class="nav-link">Usuario:  <?= $_SESSION['nombre_de_usuario']; ?></a> </li>
-                        
+
+                           
                         <?php    
                         }
                         else{
@@ -76,7 +72,8 @@ $result=mysqli_query($con,$query);
                                     </table>
 
                                     <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
-                                    <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar  Compra</a>
+                                    <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
+                                        Compra</a>
                                 </div>
                                 <li class="nav-item"><a class="nav-link"                            href="#!">                <img src="imagenes/menu/reclamo.png"    width="40" height="40"></a></li>
                             </li>
@@ -91,7 +88,7 @@ $result=mysqli_query($con,$query);
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 my-4 mx-auto text-center">
             
             <h1 class="display-4 mt-4">Lista de Productos</h1>
-            <p class="lead">Selecciona uno de nuestros productos y accede a un descuento </p>
+            <p class="lead">Selecciona uno de nuestros productos y accede a un descuento</p>
         </div>
         <!-- Categorias  -->
         <center>
@@ -123,34 +120,36 @@ $result=mysqli_query($con,$query);
         </center>
         </form>
         <br><br>
-        <div class="container" id="lista-productos">
-            
-            <div class="card-deck mb-3 text-center">
-            <?php
-                while($mostrar=mysqli_fetch_array($result)){
-                ?>
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-bold"><?=$mostrar['nombre_producto']?></h4>
-                    </div>
-                    <div class="card-body">
-                        <img src="imagenes/productos/<?=$mostrar['imagen']?>"  class="card-img-top">
-                        <h1 class="card-title pricing-card-title precio">Q/. <span class=""><?=$mostrar['precio_producto']?></span></h1>
-
-                        <a href="" class="btn btn-block btn-primary agregar-carrito" data-id="<?=$mostrar['codigo_producto']?>">Comprar</a>
-                    </div>
-                </div>
-                <?php
-                    }
-                ?>
-            </div>
-
-        </div> <!-- no borrar --->
     </main>
+
+        
+    <h1 align="center" >Mision</h1>
+    <i  align="center">
+    Nuestra misión es convertirnos en una cadena de supermercados 
+    a nivel nacional al tiempo que ofrecemos 
+    un amplio surtido de productos de calidad a unos precios competitivos. 
+    El desarrollo de nuestra actividad 
+    se realiza teniendo en cuenta la labor de los empleados y el trato 
+    personalizado y cercano hacia el cliente.
+    A través de un compromiso con el desarrollo local, apostamos por 
+    el modelo de franquicia para fortalecer 
+    y hacer crecer el proyecto de Supermercados 
+    La Despensa apostando por el trabajo en equipo y la colaboración.    
+    </i>
+
+    <h1 align="center">Vision</h1>
+    <i style="text-align:justify">
+    Consolidarnos como una cadena de supermercados cercana, donde el cliente siempre esté bien atendido y pueda realizar su compra de manera agradable y satisfactoria.
+      </i>
+    <h2 align="center">Informacion de contacto</h2>
+    <h3 align="center">Telefonos</h3>
+    <p align="center">1111-1111</p>
+    <p align="center">1111-1111</p>
+    <h3 align="center">Correo</h3>
+    <p align="center">supermercadoweb@gmail.com</p>
 
     <div id="con">
     <div id="footer">
-    
     <p style="background: #2e4053; color:white; font-weight:bold; padding:15px; border:3px solid  #2e4053; margin-top:40px; margin-bottom:40px; text-align:center; font-size:22px; border-radius:10px;">
     <input type="button" value="Acerca de nosotros" onclick="location.href='contacto.php'">
     <input type="button" value="Solicitud de empleo" onclick="location.href='solicitud.php'">

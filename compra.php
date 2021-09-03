@@ -1,3 +1,9 @@
+<?php
+//if(isset($_SESSION['idusuario']))
+session_start(); 
+		
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,6 +45,49 @@
                 <div class="col">
                     <h2 class="d-flex justify-content-center mb-3">Realizar Compra</h2>
                     <form id="procesar-pago" action="#">
+                        <?php
+                        if(isset($_SESSION['idusuario']) ){
+                        ?>
+                        <div class="form-group row">
+                            <label for="cliente" class="col-12 col-md-2 col-form-label h2">Nombre :</label>
+                            <div class="col-12 col-md-10">
+                                <input type="text" class="form-control" id="cliente" value="<?= $_SESSION['nombre_de_cliente']; ?>" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="cliente" class="col-12 col-md-2 col-form-label h2">Apellido :</label>
+                            <div class="col-12 col-md-10">
+                                <input type="text" class="form-control" id="cliente" value="<?= $_SESSION['apellido_de_cliente']; ?>" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cliente" class="col-12 col-md-2 col-form-label h2">Telefono :</label>
+                            <div class="col-12 col-md-10">
+                                <input type="text" class="form-control" id="cliente" value="<?= $_SESSION['telefono_de_cliente']; ?>" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cliente" class="col-12 col-md-2 col-form-label h2">Direccion :</label>
+                            <div class="col-12 col-md-10">
+                                <input type="text" class="form-control" id="cliente" value="<?= $_SESSION['direccion_de_cliente']; ?>" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cliente" class="col-12 col-md-2 col-form-label h2">Correo :</label>
+                            <div class="col-12 col-md-10">
+                                <input type="text" class="form-control" id="cliente" value="<?= $_SESSION['correo_de_cliente']; ?>" required>
+                            </div>
+                        </div>
+                        <?php    
+                        }
+                        else{
+                        ?>
+                        <!-- <th scope="col"></th> -->
+                        
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
                             <div class="col-12 col-md-10">
@@ -46,11 +95,60 @@
                                     placeholder="Ingresa nombre cliente" required>
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="cliente" class="col-12 col-md-2 col-form-label h2">Apellido :</label>
+                            <div class="col-12 col-md-10">
+                                <input type="text" class="form-control" id="cliente"
+                                    placeholder="Ingresa apellido cliente" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cliente" class="col-12 col-md-2 col-form-label h2">Telefono :</label>
+                            <div class="col-12 col-md-10">
+                                <input type="text" class="form-control" id="cliente"
+                                    placeholder="Ingresa tu telefono" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cliente" class="col-12 col-md-2 col-form-label h2">Direccion :</label>
+                            <div class="col-12 col-md-10">
+                                <input type="text" class="form-control" id="cliente"
+                                    placeholder="Ingresa tu direccion" required>
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="email" class="col-12 col-md-2 col-form-label h2">Correo :</label>
                             <div class="col-12 col-md-10">
                                 <input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo" required>
                             </div>
+                        </div>
+
+                        -
+
+                        <?php } ?>
+                        
+                        <div class="row justify-content-center" id="loaders"> 
+                            <h3>Metodo de envio</h3> 
+                            <label class="container">Contra entrega
+                            <input type="radio" checked="checked" name="radio">
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container">Tarjeta de credito
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container">Three
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container">Four
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>
+                            </label> 
                         </div>
 
                         <div id="carrito" class="table-responsive">
@@ -93,6 +191,7 @@
 
                             </table>
                         </div>
+                        
 
                         <div class="row justify-content-center" id="loaders">
                             <img id="cargando" src="img/cargando.gif" width="220">

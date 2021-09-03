@@ -1,7 +1,7 @@
 <?php
 function consulta(){
     //header('location:index.php?valor=principal');
-    $nombre=$_POST['fname'];
+    //$nombre=$_POST['fname'];
     if(is_null($mivalor = $_GET["valor"])){
         header('location:index.php?valor=principal');
     }else {
