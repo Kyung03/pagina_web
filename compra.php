@@ -132,23 +132,22 @@ session_start();
                         <?php } ?>
                         
                         <div class="row justify-content-center" id="loaders"> 
-                            <h3>Metodo de envio</h3> 
-                            <label class="container">Contra entrega
-                            <input type="radio" checked="checked" name="radio">
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container">Tarjeta de credito
-                            <input type="radio" name="radio">
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container">Three
-                            <input type="radio" name="radio">
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container">Four
-                            <input type="radio" name="radio">
-                            <span class="checkmark"></span>
-                            </label> 
+                            <div style="text-align:center;">
+                                <table>
+                                    <tr><h3>Metodo de Pago</h3> 
+                                        <td>
+                                        <label class="container">Contra entrega
+                                        <input type="radio" checked="checked" name="radio">
+                                        <span class="checkmark"></span>
+                                        </label></td>
+                                        <td>
+                                        <label class="container">Tarjeta de credito
+                                        <input type="radio" checked="checked" name="radio">
+                                        <span class="checkmark"></span>
+                                        </label></td>
+                                    </tr>
+                                </table>
+                            </div> 
                         </div>
 
                         <div id="carrito" class="table-responsive">
