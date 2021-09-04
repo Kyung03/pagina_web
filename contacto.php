@@ -45,7 +45,7 @@ include("consulta.php");
                         if(isset($_SESSION['idusuario']) ){
                         ?>
                         <li class="nav-item"><a class="nav-link" href="cerrar_sesion.php"><img src="imagenes/menu/atras.png"   width="40" height="40"></a></li>
-
+                        <li class="nav-item"> <a class="nav-link">Usuario:  <?= $_SESSION['nombre_de_usuario']; ?></a> </li>
                            
                         <?php    
                         }
@@ -153,6 +153,8 @@ include("consulta.php");
     <p style="background: #2e4053; color:white; font-weight:bold; padding:15px; border:3px solid  #2e4053; margin-top:40px; margin-bottom:40px; text-align:center; font-size:22px; border-radius:10px;">
     <input type="button" value="Acerca de nosotros" onclick="location.href='contacto.php'">
     <input type="button" value="Solicitud de empleo" onclick="location.href='solicitud.php'">
+    <a href="en_index.php" ><img src="imagenes/menu/en.png"  width="40" height="40"> </a>
+    <a href="index.php" ><img src="imagenes/menu/es.png"  width="40" height="30"> </a>
     </p>
     
     </div>

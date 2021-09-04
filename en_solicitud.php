@@ -30,7 +30,7 @@ include("consulta.php");
         <div class="container">
             <div class="row align-items-stretch justify-content-between">
                 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                    <a class="navbar-brand" href="index.php">Supermercado en linea</a>
+                    <a class="navbar-brand" href="en_index.php">Online supermarket</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -42,7 +42,7 @@ include("consulta.php");
                         if(isset($_SESSION['idusuario']) ){
                         ?>
                         <li class="nav-item"><a class="nav-link" href="cerrar_sesion.php"><img src="imagenes/menu/atras.png"   width="40" height="40"></a></li>
-                        <li class="nav-item"> <a class="nav-link">Usuario:  <?= $_SESSION['nombre_de_usuario']; ?></a> </li>
+
                            
                         <?php    
                         }
@@ -59,18 +59,17 @@ include("consulta.php");
                                     <table id="lista-carrito" class="table">
                                         <thead>
                                             <tr>
-                                                <th>Imagen</th>
-                                                <th>Nombre</th>
-                                                <th>Precio</th>
+                                                <th>Image</th>
+                                                <th>Name</th>
+                                                <th>Price</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
                                     </table>
 
-                                    <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
-                                    <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
-                                        Compra</a>
+                                    <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Empty Cart</a>
+                                    <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Process Purchase</a>
                                 </div>
                                 <li class="nav-item"><a class="nav-link"                            href="#!">                <img src="imagenes/menu/reclamo.png"    width="40" height="40"></a></li>
                             </li>
@@ -90,25 +89,25 @@ include("consulta.php");
        
         <form action="registrar_solicitud.php" method="POST"> 
                     <center> 
-                    <h1 class="display-5 fw-bold">Registrar datos</h1>
-                    <label for="nombreU">Nombre:</label>
+                    <h1 class="display-5 fw-bold">Record data</h1>
+                    <label for="nombreU">Name:</label>
                     <input type="text" id="nombre" name="nombre" value="">
                     <br><br>
-                    <label for="apellidoU">Apellido:</label>
+                    <label for="apellidoU">Last name:</label>
                     <input type="text" id="apellido" name="apellido" value="">
                     <br><br>
-                    <label for="correoU">Correo: </label>
+                    <label for="correoU">E Mail: </label>
                     <input type="text" id="correo" name="correo" value="">
                     <br><br>
-                    <label for="telU">Telefono:</label>
+                    <label for="telU">Phone number:</label>
                     <input type="text" id="tel" name="tel" value="">
                     <br><br>
-                    <label for="dirU">Dirección:</label>
+                    <label for="dirU">Address:</label>
                     <input type="text" id="dir" name="dir" value=""> 
                     <br><br>
-                    <label for="dirU">Ciudad:</label>
+                    <label for="dirU">Town:</label>
                     <select name=ciudad>
-                    <option value='0'>Seleccione</option>
+                    <option value='0'>select</option>
                     <?php 
                     $sql2="SELECT nombre_ciudad FROM `ciudad` ";
                     $result2=mysqli_query($con,$sql2);
@@ -118,7 +117,7 @@ include("consulta.php");
                     ?>
                     </select><br>
                     
-                    <button class="btn btn-primary btn-lg" type="submit" id="myBtn">Ingresar</button>
+                    <button class="btn btn-primary btn-lg" type="submit" id="myBtn">Send</button>
                     
                     </center>
                    
@@ -129,10 +128,8 @@ include("consulta.php");
     <div id="footer">
     
     <p style="background: #2e4053; color:white; font-weight:bold; padding:15px; border:3px solid  #2e4053; margin-top:40px; margin-bottom:40px; text-align:center; font-size:22px; border-radius:10px;">
-    <input type="button" value="Acerca de nosotros" onclick="location.href='contacto.php'">
-    <input type="button" value="Solicitud de empleo" onclick="location.href='solicitud.php'">
-    <a href="en_index.php" ><img src="imagenes/menu/en.png"  width="40" height="40"> </a>
-    <a href="index.php" ><img src="imagenes/menu/es.png"  width="40" height="30"> </a>
+    <input type="button" value="About us" onclick="location.href='en_contacto.php'">
+    <input type="button" value="Job application" onclick="location.href='en_solicitud.php'">
     </p>
     
     </div>
