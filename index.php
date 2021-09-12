@@ -78,7 +78,7 @@ $result=mysqli_query($con,$query);
                                     <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
                                     <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar  Compra</a>
                                 </div>
-                                <li class="nav-item"><a class="nav-link"                            href="#!">                <img src="imagenes/menu/reclamo.png"    width="40" height="40"></a></li>
+                                <li class="nav-item"><a class="nav-link"                            href="reclamos.php">                <img src="imagenes/menu/reclamo.png"    width="40" height="40"></a></li>
                             </li>
                         </ul>
                     </div>
