@@ -9,6 +9,5 @@ function conectar(){
 
     return $con;
 }
-
-
+    
 ?>
