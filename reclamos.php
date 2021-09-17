@@ -91,9 +91,10 @@ include ("consulta.php")
 
         </div>
                             
-        
-        
-            <form action="registrar_reclamo.php" method="POST"> 
+        <?php
+                    if(isset($_SESSION['idusuario']) ){
+                        ?>
+                    <form action="registrar_reclamo.php" method="POST"> 
                     <center>
                     <h1 class="display-5 fw-bold">Registrar reclamo</h1>
                     <label for="num_factura">Numero de Factura:</label>
@@ -115,7 +116,19 @@ include ("consulta.php")
                     </select><br>
                     <button class="btn btn-primary btn-lg" type="submit" id="myBtn">Registrar</button>
                     </center>
-            </form>
+                    </form>
+                        <?php    
+                    }
+                        else{
+                        ?>
+                        <center>
+                        <label>Para hacer un reclamo es necesario <a href="inicio_sesion.php">iniciar sesion</a></label><br>
+                        <label>Para registrar puedes entrar <a href="registro.php">aqui</a> </label>
+                        </center>
+                        <?php 
+                        } ?>
+        
+            
         
                
                                 

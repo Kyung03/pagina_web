@@ -10,9 +10,22 @@ $direccioncliente = $_POST['dirU'];
 $usuariocliente = $_POST['usuarioU'];
 $contrasenacliente = $_POST['contrasenaU'];
 
-$sql="INSERT INTO `cliente` (`nombre_cliente`, `apellido_cliente`, `telefono_cliente`, `correo_cliente`, `direccion_cliente`, 
-`usuario_cliente`, `contrasena_cliente`) VALUES
-('$nombrecliente', '$apellidocliente', $telefonocliente , '$correocliente', '$direccioncliente', '$usuariocliente', '$contrasenacliente')";
-mysqli_query($con,$sql); 
-header("Location:index.php")  ;
+$sql="INSERT INTO `usuario` (`usuario`, `contrasena_usuario`, `estado_usuario`, `codigo_rol`, `fecha_creacion_usuario`) 
+VALUES ('$usuariocliente', '$contrasenacliente', 'activo' , 1, SYSDATE())";
+mysqli_query($con,$sql);
+
+$last_id = $con->insert_id;
+
+$sql2="INSERT INTO `cliente` (`nombre_cliente`, `apellido_cliente`, `telefono_cliente`, `correo_cliente`, `direccion_cliente`, 
+`codigo_usuario`) VALUES
+('$nombrecliente', '$apellidocliente', $telefonocliente , '$correocliente', '$direccioncliente', '$last_id')";
+mysqli_query($con,$sql2); 
+
+mysqli_query($con,"CALL `procedimiento_accesos`('$last_id','$usuariocliente','cliente','Creacion')");
+
+
+echo '<script type="text/javascript">
+    alert("Usuario creado correctamente.");
+    window.location.assign("inicio_sesion.php");
+    </script>';
 ?>

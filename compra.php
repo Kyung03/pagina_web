@@ -1,6 +1,8 @@
 <?php
 //if(isset($_SESSION['idusuario']))
 session_start(); 
+
+
 		
 ?>
 
@@ -44,42 +46,42 @@ session_start();
             <div class="row mt-3">
                 <div class="col">
                     <h2 class="d-flex justify-content-center mb-3">Realizar Compra</h2>
-                    <form id="procesar-pago" action="#">
+                    <form action="compra_procesada.php" method="POST">
                         <?php
                         if(isset($_SESSION['idusuario']) ){
                         ?>
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Nombre :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="cliente" value="<?= $_SESSION['nombre_de_cliente']; ?>" required>
+                                <input type="text" name="nombre" class="form-control" id="cliente" value="<?= $_SESSION['nombre_de_cliente']; ?>" required>
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Apellido :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="cliente" value="<?= $_SESSION['apellido_de_cliente']; ?>" required>
+                                <input type="text" name="apellido" class="form-control" id="cliente" value="<?= $_SESSION['apellido_de_cliente']; ?>" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Telefono :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="cliente" value="<?= $_SESSION['telefono_de_cliente']; ?>" required>
+                                <input type="text" name="telefono" class="form-control" id="cliente" value="<?= $_SESSION['telefono_de_cliente']; ?>" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Direccion :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="cliente" value="<?= $_SESSION['direccion_de_cliente']; ?>" required>
+                                <input type="text" name="direccion" class="form-control" id="cliente" value="<?= $_SESSION['direccion_de_cliente']; ?>" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Correo :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="cliente" value="<?= $_SESSION['correo_de_cliente']; ?>" required>
+                                <input type="text" name="correo" class="form-control" id="cliente" value="<?= $_SESSION['correo_de_cliente']; ?>" required>
                             </div>
                         </div>
                         <?php    
@@ -91,7 +93,7 @@ session_start();
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="cliente"
+                                <input type="text" name="nombre" class="form-control" id="cliente"
                                     placeholder="Ingresa nombre cliente" required>
                             </div>
                         </div>
@@ -99,7 +101,7 @@ session_start();
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Apellido :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="cliente"
+                                <input type="text" name="apellido" class="form-control" id="cliente"
                                     placeholder="Ingresa apellido cliente" required>
                             </div>
                         </div>
@@ -107,7 +109,7 @@ session_start();
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Telefono :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="cliente"
+                                <input type="text" name="telefono" class="form-control" id="cliente"
                                     placeholder="Ingresa tu telefono" required>
                             </div>
                         </div>
@@ -115,7 +117,7 @@ session_start();
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Direccion :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="cliente"
+                                <input type="text" name="direccion" class="form-control" id="cliente"
                                     placeholder="Ingresa tu direccion" required>
                             </div>
                         </div>
@@ -123,7 +125,7 @@ session_start();
                         <div class="form-group row">
                             <label for="email" class="col-12 col-md-2 col-form-label h2">Correo :</label>
                             <div class="col-12 col-md-10">
-                                <input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo" required>
+                                <input type="email" name="correo" class="form-control" id="correo" placeholder="Ingresa tu correo" required>
                             </div>
                         </div>
 
@@ -183,12 +185,13 @@ session_start();
                                 <tr>
                                     <th colspan="4" scope="col" class="text-right">TOTAL :</th>
                                     <th scope="col">
-                                        <p id="total"></p>
+                                        <p id="total" name="total"></p>
                                     </th>
                                     <!-- <th scope="col"></th> -->
                                 </tr>
 
                             </table>
+                            <p id="pr"></p>
                         </div>
                         
 
@@ -201,7 +204,7 @@ session_start();
                                 <a href="index.php" class="btn btn-info btn-block">Seguir comprando</a>
                             </div>
                             <div class="col-xs-12 col-md-4">
-                                <a href="" class="btn btn-success btn-block" id="procesar-compra">Realizar compra</a>
+                                <button type="submit" class="btn btn-success btn-block">Realizar compra</button>
                             </div>
                         </div>
                     </form>

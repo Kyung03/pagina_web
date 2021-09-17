@@ -136,7 +136,7 @@ $result=mysqli_query($con,$query);
                     <div class="card-body">
                         <img src="imagenes/productos/<?=$mostrar['imagen']?>"  class="card-img-top">
                         <h1 class="card-title pricing-card-title precio">Q/. <span class=""><?=$mostrar['precio_producto']?></span></h1>
-
+                        <p>Existencias: <?=$mostrar['cantidad_producto']?> </p>
                         <a href="" class="btn btn-block btn-primary agregar-carrito" data-id="<?=$mostrar['codigo_producto']?>">Comprar</a>
                     </div>
                 </div>

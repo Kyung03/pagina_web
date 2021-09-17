@@ -203,7 +203,7 @@ class Carrito {
         for(let i = 0; i < productosLS.length; i++){
             let element = Number(productosLS[i].precio * productosLS[i].cantidad);
             total = total + element;
-            
+            document.getElementById('pr').innerHTML = productosLS[i].precio;
         }
         
         igv = parseFloat(total * 0.18).toFixed(2);
@@ -211,7 +211,7 @@ class Carrito {
 
         document.getElementById('subtotal').innerHTML = "S/. " + subtotal;
         document.getElementById('igv').innerHTML = "S/. " + igv;
-        document.getElementById('total').value = "S/. " + total.toFixed(2);
+        document.getElementById('total').innerHTML = "S/. " + total.toFixed(2);
     }
 
     obtenerEvento(e) {
