@@ -2,20 +2,22 @@
     session_start();
 include("conexion.php");
 $con=conectar();
-$numeroFactura = $_POST['num_factura'];
+//$numeroFactura = $_POST['num_factura'];
 $descripcion = $_POST['Descripcion'];
 $tipo_reclamo = $_POST['tipo_reclamo'];
+$idusuario = $_SESSION['idusuario'];
 
-
-$sql2="SELECT codigo_tipo_reclamo FROM tipo_reclamo where nombre_tipo_reclamo = '$tipo_reclamo' ";
+$sql2="SELECT codigo_cliente FROM cliente where codigo_usuario = $idusuario ";
 		$result2=mysqli_query($con,$sql2);
 
 		while($mostrar2=mysqli_fetch_array($result2)){
-			$tipo_reclamo = $mostrar2['codigo_tipo_reclamo']; 
+			$codigo_cliente = $mostrar2['codigo_cliente']; 
 	    } 
 
-$sql= "INSERT INTO `reclamos` (`descripcion_reclamo`, `codigo_tipo`, `codigo_factura`,`codigo_estado`) 
-VALUES ('$descripcion', '$tipo_reclamo', '$numeroFactura','1')";
+$sql = "INSERT INTO `reclamos` (`descripcion_reclamo`, `codigo_tipo`,`codigo_estado`,codigo_cliente) 
+VALUES ('$descripcion', '$tipo_reclamo' ,'1',$codigo_cliente)";
+
+echo $sql;
 mysqli_query($con,$sql);  
 $last_id = $con->insert_id;
 
