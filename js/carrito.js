@@ -145,7 +145,8 @@ class Carrito {
                 <td>${producto.titulo}</td>
                 <td>${producto.precio}</td>
                 <td>
-                    <input type="number" class="form-control cantidad" min="1" value=${producto.cantidad}>
+                    <input type= "Hidden" value="${producto.id}" name="idproducto">
+                    <input type="number" name="resta" class="form-control cantidad" min="1" value=${producto.cantidad}>
                 </td>
                 <td id='subtotales'>${producto.precio * producto.cantidad}</td>
                 <td>
