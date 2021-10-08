@@ -5,7 +5,8 @@ session_start();
 
 		
 ?>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +25,7 @@ session_start();
     
 </head>
 
-<body>
+<body  >
     <header>
         <div class="container">
             <div class="row justify-content-between mb-5">
@@ -46,42 +47,42 @@ session_start();
             <div class="row mt-3">
                 <div class="col">
                     <h2 class="d-flex justify-content-center mb-3">Realizar Compra</h2>
-                    <form action="compra_procesada.php" method="POST">
+                     
                         <?php
                         if(isset($_SESSION['idusuario']) ){
                         ?>
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Nombre :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" name="nombre" class="form-control" id="cliente" value="<?= $_SESSION['nombre_de_cliente']; ?>" required>
+                                <input type="text" name="nombre" class="form-control" id="nombre" value="<?= $_SESSION['nombre_de_cliente']; ?>" required>
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Apellido :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" name="apellido" class="form-control" id="cliente" value="<?= $_SESSION['apellido_de_cliente']; ?>" required>
+                                <input type="text" name="apellido" class="form-control" id="apellido" value="<?= $_SESSION['apellido_de_cliente']; ?>" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Telefono :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" name="telefono" class="form-control" id="cliente" value="<?= $_SESSION['telefono_de_cliente']; ?>" required>
+                                <input type="text" name="telefono" class="form-control" id="telefono" value="<?= $_SESSION['telefono_de_cliente']; ?>" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Direccion :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" name="direccion" class="form-control" id="cliente" value="<?= $_SESSION['direccion_de_cliente']; ?>" required>
+                                <input type="text" name="direccion" class="form-control" id="direccion" value="<?= $_SESSION['direccion_de_cliente']; ?>" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Correo :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" name="correo" class="form-control" id="cliente" value="<?= $_SESSION['correo_de_cliente']; ?>" required>
+                                <input type="text" name="correo" class="form-control" id="correo" value="<?= $_SESSION['correo_de_cliente']; ?>" required>
                             </div>
                         </div>
                         <?php    
@@ -93,7 +94,7 @@ session_start();
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" name="nombre" class="form-control" id="cliente"
+                                <input type="text" name="nombre" class="form-control" id="nombre"
                                     placeholder="Ingresa nombre cliente" required>
                             </div>
                         </div>
@@ -101,7 +102,7 @@ session_start();
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Apellido :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" name="apellido" class="form-control" id="cliente"
+                                <input type="text" name="apellido" class="form-control" id="apellido"
                                     placeholder="Ingresa apellido cliente" required>
                             </div>
                         </div>
@@ -109,7 +110,7 @@ session_start();
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Telefono :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" name="telefono" class="form-control" id="cliente"
+                                <input type="text" name="telefono" class="form-control" id="telefono"
                                     placeholder="Ingresa tu telefono" required>
                             </div>
                         </div>
@@ -117,7 +118,7 @@ session_start();
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Direccion :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" name="direccion" class="form-control" id="cliente"
+                                <input type="text" name="direccion" class="form-control" id="direccion"
                                     placeholder="Ingresa tu direccion" required>
                             </div>
                         </div>
@@ -135,23 +136,14 @@ session_start();
                         
                         <div class="row justify-content-center" id="loaders"> 
                             <div style="text-align:center;">
-                                <table>
-                                    <tr><h3>Metodo de Pago</h3> 
-                                        <td>
-                                        <label class="container">Contra entrega
-                                        <input type="radio" checked="checked" name="radio">
-                                        <span class="checkmark"></span>
-                                        </label></td>
-                                        <td>
-                                        <label class="container">Tarjeta de credito
-                                        <input type="radio" checked="checked" name="radio">
-                                        <span class="checkmark"></span>
-                                        </label></td>
-                                    </tr>
-                                </table>
+                            <h2>Metodo de pago</h2>
+                                <select name="mpago" id="mpago">
+                                    <option value="Contra entrega">Contra entrega</option>
+                                    <option value="Tarjeta de credito">Tarjeta de credito</option>
+                                </select>
                             </div> 
                         </div>
-
+                        <br><br>
                         <div id="carrito" class="table-responsive">
                             <table class="table" id="lista-compra">
                                 <thead>
@@ -171,14 +163,14 @@ session_start();
                                 <tr>
                                     <th colspan="4" scope="col" class="text-right">SUB TOTAL :</th>
                                     <th scope="col">
-                                        <p id="subtotal"></p>
+                                        <p id="subtotal" name="subtotal"></p>
                                     </th>
                                     <!-- <th scope="col"></th> -->
                                 </tr>
                                 <tr>
                                     <th colspan="4" scope="col" class="text-right">IVA :</th>
                                     <th scope="col">
-                                        <p id="igv"></p>
+                                        <p id="igv" name="igv"></p>
                                     </th>
                                     <!-- <th scope="col"></th> -->
                                 </tr>
@@ -196,7 +188,7 @@ session_start();
                         
 
                         <div class="row justify-content-center" id="loaders">
-                            <img id="cargando" src="img/cargando.gif" width="220">
+                            
                         </div>
 
                         <div class="row justify-content-between">
@@ -204,10 +196,10 @@ session_start();
                                 <a href="index.php" class="btn btn-info btn-block">Seguir comprando</a>
                             </div>
                             <div class="col-xs-12 col-md-4">
-                                <button type="submit" class="btn btn-success btn-block">Realizar compra</button>
+                                <button type="submit" id="button" class="btn btn-success btn-block">Realizar compra</button> 
                             </div>
                         </div>
-                    </form>
+                    
 
 
                 </div>
@@ -233,3 +225,70 @@ session_start();
 </body>
 
 </html>
+
+<script>
+    var lista = [];
+    var lista_cantidad = [];
+    var lista_precios = [];
+    var lista_nombres = [];
+
+    $(document).ready(function(){
+        
+        $("#button").click(function(){
+            prueba();
+            var nombre=$("#nombre").val(); 
+            var apellido=$("#apellido").val(); 
+            var telefono=$("#telefono").val(); 
+            var correo=$("#correo").val(); 
+            var direccion=$("#direccion").val(); 
+            //var clienteid=$("#clienteid").val();
+            var mpago=$("#mpago").val();
+            for(var i=0; i<lista.length; i++){ 
+                var can=document.getElementById("cantidad"+lista[i]).value;  
+                lista_cantidad.push(can);
+                } 
+            $.ajax({
+                url:'compra_procesada.php',
+                method:'POST',
+                data:{
+                    'lista': JSON.stringify(lista),
+                    'lista_precios': JSON.stringify(lista_precios),
+                    'lista_cantidad': JSON.stringify(lista_cantidad),
+                    'lista_nombres': JSON.stringify(lista_nombres),
+                    nombre:nombre,
+                    apellido:apellido,
+                    telefono:telefono,
+                    correo:correo,
+                    direccion:direccion,
+                    mpago:mpago
+                },
+               success:function(data){
+                   alert(data);
+               }
+            });
+        });
+    });
+
+    function prueba(){
+        if (typeof(Storage) !== "undefined") {
+    // Store 
+    // Retrieve
+    var obj = JSON.parse(localStorage.getItem('productos'));
+    obj.forEach(function (producto){
+        
+                lista.push(producto.id);
+                //lista_cantidad = document.getElementById("cantidad"+producto.id).value;
+                lista_precios.push(producto.precio);
+                lista_nombres.push(producto.titulo);
+                
+                //alert(lista);  
+                //alert(lista_nombres);
+                //alert(lista_precios);
+                //alert(lista_cantidad);
+                 
+        }); 
+        } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+        }
+    }
+</script>

@@ -1,7 +1,9 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
-<body onload="">
-<button onclick="resultada()">resultada</button>
+<body onload="prueba()">
+<button type="submit" id="button">SAVE</button>
 <button onclick="prueba()">resultado 2</button>
 
 <div id ="result"> 
@@ -13,6 +15,30 @@
 
 
 <script>
+    $(document).ready(function(){
+        
+            $("#button").click(function(){
+                
+                //var name=$("#name").val(); 
+                //var clienteid=$("#clienteid").val();
+                //var mpago=$("#mpago").val();
+                $.ajax({
+                    url:'prueba_modelo.php',
+                    method:'POST',
+                    data:{
+                        'lista': JSON.stringify(lista),
+                        'lista_precios': JSON.stringify(lista_precios),
+                        'lista_cantidad': JSON.stringify(lista_cantidad),
+                        'lista_nombres': JSON.stringify(lista_nombres),
+                        //clienteid:clienteid,
+                        //mpago:mpago
+                    },
+                   success:function(data){
+                       alert(data);
+                   }
+                });
+            });
+        });
 // Check browser support
 function resultada(){
     if (typeof(Storage) !== "undefined") {
@@ -34,7 +60,10 @@ function resultado(){
     document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
     }
 }
-
+var lista = [];
+var lista_cantidad = [];
+var lista_precios = [];
+var lista_nombres = [];
 function prueba(){
     if (typeof(Storage) !== "undefined") {
   // Store 
@@ -50,16 +79,13 @@ function prueba(){
                 <td> <input  name='cant' value='${producto.cantidad}' /></td>
                 <td id='subtotales'>${producto.precio * producto.cantidad}</td>   
                 
-            `;  
-            <?php 
-                include("conexion.php"); 
-                $con=conectar();
-                $codigo = 1;
-                $cantidad =  1; 
-                $sql= "INSERT INTO `carretilla_compra` (`codigo_producto`, `cantidad`) 
-                VALUES ('$codigo', '$cantidad')"; 
-                mysqli_query($con,$sql);  
-                ?>
+            `;
+            lista.push(producto.id);
+            lista_cantidad.push(producto.cantidad);
+            lista_precios.push(producto.precio);
+            lista_nombres.push(producto.titulo);
+            //alert(lista);  
+            //alert(lista_precios);
             document.getElementById("tabla").appendChild(row);
     }); 
     } else {

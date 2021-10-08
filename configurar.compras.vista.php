@@ -1,4 +1,4 @@
-<?php require_once('configurar.reclamos.modelo.php');  ?>
+<?php require_once('configurar.compras.modelo.php');  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,23 +25,29 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
-<table id="tabla_reclamo">
-        <tr>
-            <th>Codigo de reclamo</th>
-            <th>Tipo de reclamo</th>
-            <th>Descripcion del reclamo</th>
-            <th>Estado de reclamo</th>
-        </tr>
+<table id="tabla_reclamo"> 
+    
+  <tr>
+    <th>Factura</th>
+    <th>Producto</th>
+    <th>Precio</th>
+    <th>Cantidad</th>
+    <th>Fecha</th>
+    <th>Total</th> 
+  </tr>
         <?php
-        //while($mostrar=mysqli_fetch_array($result)){
+        while($mostrar=mysqli_fetch_array($result)){
             //$codigo_reclamo = $mostrar['codigo_reclamo']; 
-        //   echo "<tr>";
-        //    echo "<th>".$mostrar['codigo_reclamo']. "</th>" ;
-        //   echo "<th>".$mostrar['nombre_tipo_reclamo'] ."</th>" ;
-        //    echo "<th>".$mostrar['descripcion_reclamo']. "</th>" ;
+           echo "<tr>";
+           echo "<th>".$mostrar['codigo_factura']. "</th>" ;
+           echo "<th>".$mostrar['nombre_producto']. "</th>" ;
+           echo "<th>".$mostrar['precio_producto'] ."</th>" ;
+           echo "<th>".$mostrar['cantidad']. "</th>" ;
+           echo "<th>".$mostrar['fecha_factura']. "</th>" ;
+           echo "<th>".$mostrar['total']. "</th>" ;
         //   echo "<th>".$mostrar['estado']. "</th>" ;
-        //    echo "</tr>";
-        //} 
+            echo "</tr>";
+        } 
         ?>
     </table>
 </body>

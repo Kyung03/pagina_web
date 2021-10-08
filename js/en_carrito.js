@@ -153,6 +153,7 @@ class Carrito {
                 </td>
             `;
             listaCompra.appendChild(row);
+            
         });
     }
 

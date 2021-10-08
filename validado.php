@@ -11,6 +11,7 @@ $mostrar=mysqli_fetch_array($result);
     if($contrasena==$mostrar['contrasena_usuario']){
  
         $_SESSION['idusuario']=$mostrar['codigo_usuario'];
+        $_SESSION['idcliente']=$mostrar['codigo_cliente'];
         $_SESSION['nombre_de_usuario']=$mostrar['usuario'];
         $_SESSION['nombre_de_cliente']=$mostrar['nombre_cliente'];
         $_SESSION['apellido_de_cliente']=$mostrar['apellido_cliente'];
