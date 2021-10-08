@@ -3,6 +3,7 @@
 session_start(); 
 include("conexion.php");
 $con=conectar();
+
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $telefono = $_POST['telefono'];
@@ -56,9 +57,13 @@ if(isset($_SESSION['idusuario']) ){
     $sql= "INSERT INTO `factura` (`total`, `fecha_factura`, `codigo_cliente`) 
     VALUES ('$total','sysdate', '$_SESSION[idusuario]')";
     
+    $sql=" update producto set cantidad_producto = (cantidad_producto-$resta) where codigo_producto=$idproducto and (cantidad_producto>=$resta)";
+    mysqli_query($con,$sql);
+    echo $last_id;
 }else{
-    $sql= "INSERT INTO `factura` (`total`, `fecha_factura`) 
-    VALUES ('$total', 'sysdate')";
+    echo "<script>if(confirm('Tu solicitud de compra es mayor a nuestra cantidad de stock.')) window.location.href = 'compra.php';</script>";
+  
+    die();
 }
 
 
