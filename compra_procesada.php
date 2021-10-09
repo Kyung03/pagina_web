@@ -15,7 +15,7 @@ $lista = json_decode($_POST['lista']);
 $lista_cantidad = json_decode($_POST['lista_cantidad']);
 $lista_precios = json_decode($_POST['lista_precios']);
 $lista_nombres = json_decode($_POST['lista_nombres']);
-$cliente = $_SESSION['idcliente'];
+
 echo $nombre;
 echo $apellido;
 echo $telefono;
@@ -38,12 +38,29 @@ for ($x = 0; $x < count($lista); $x++) {
     $total = intval($total) + intval($lista_precios[$x])*intval($lista_cantidad[$x]);
     
   } echo $total;
-  /* SE CREA LA FACTURA */
-	$query_factura = "INSERT INTO `factura`( `total`, `fecha_factura`, `codigo_cliente` ) 
-	VALUES ($total, sysdate(), $cliente )";
+
+  if(isset($_SESSION['idusuario']) ){ 
+    //$sql=" update producto set cantidad_producto = (cantidad_producto-$resta) where codigo_producto=$idproducto and (cantidad_producto>=$resta)";
+    //mysqli_query($con,$sql);
+    // $last_id;
+      /* SE CREA LA FACTURA */
+      $cliente = $_SESSION['idcliente'];
+      $query_factura = "INSERT INTO `factura`( `total`, `fecha_factura`, `codigo_cliente`, `metodo_pago` ) 
+      VALUES ($total, sysdate(), $cliente,'$mpago' )";
+      echo $query_factura;
+      mysqli_query($con, $query_factura); 
+      $last_id = $con->insert_id;
+}else{
+    //echo "<script>if(confirm('Tu solicitud de compra es mayor a nuestra cantidad de stock.')) window.location.href = 'compra.php';</script>";
+    //die();
+    /* SE CREA LA FACTURA */
+    $query_factura = "INSERT INTO `factura`( `total`, `fecha_factura`, `metodo_pago` ) 
+    VALUES ($total, sysdate(),'$mpago' )";
     echo $query_factura;
-	mysqli_query($con, $query_factura); 
+    mysqli_query($con, $query_factura); 
     $last_id = $con->insert_id;
+}
+
 
     /* INSERTAR EN VENTAS */
     for($x = 0; $x < count($lista); $x++){
@@ -52,22 +69,11 @@ for ($x = 0; $x < count($lista); $x++) {
         echo $sql;
         mysqli_query($con, $sql);
     }
+
+
+
+
 /*
-if(isset($_SESSION['idusuario']) ){
-    $sql= "INSERT INTO `factura` (`total`, `fecha_factura`, `codigo_cliente`) 
-    VALUES ('$total','sysdate', '$_SESSION[idusuario]')";
-    
-    $sql=" update producto set cantidad_producto = (cantidad_producto-$resta) where codigo_producto=$idproducto and (cantidad_producto>=$resta)";
-    mysqli_query($con,$sql);
-    echo $last_id;
-}else{
-    echo "<script>if(confirm('Tu solicitud de compra es mayor a nuestra cantidad de stock.')) window.location.href = 'compra.php';</script>";
-  
-    die();
-}
-
-
-
 mysqli_query($con,$sql); 
 $last_id = $con->insert_id;
 echo $last_id;
