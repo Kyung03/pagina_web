@@ -4,12 +4,10 @@ session_start();
 
 //echo $_SESSION['idusuario'];
 include("conexion.php");
-$con=conectar();
-include("consulta.php");
-
-
-
-		
+$con=conectar(); 
+$query="SELECT * from empresa ";
+$result=mysqli_query($con,$query);
+$mostrar=mysqli_fetch_array($result); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,30 +67,22 @@ include("consulta.php");
     </main>
 
         
-    <h1 align="center" >Mision</h1>
+    <h1 align="center" >  Mision  </h1>
     <i  align="center">
-    Nuestra misión es convertirnos en una cadena de supermercados 
-    a nivel nacional al tiempo que ofrecemos 
-    un amplio surtido de productos de calidad a unos precios competitivos. 
-    El desarrollo de nuestra actividad 
-    se realiza teniendo en cuenta la labor de los empleados y el trato 
-    personalizado y cercano hacia el cliente.
-    A través de un compromiso con el desarrollo local, apostamos por 
-    el modelo de franquicia para fortalecer 
-    y hacer crecer el proyecto de Supermercados 
-    La Despensa apostando por el trabajo en equipo y la colaboración.    
+    <?php   echo $mostrar['mision'];    ?>   
     </i>
 
     <h1 align="center">Vision</h1>
     <i style="text-align:justify">
-    Consolidarnos como una cadena de supermercados cercana, donde el cliente siempre esté bien atendido y pueda realizar su compra de manera agradable y satisfactoria.
+    <?php   echo $mostrar['vision'];    ?>   
       </i>
     <h2 align="center">Informacion de contacto</h2>
     <h3 align="center">Telefonos</h3>
-    <p align="center">1111-1111</p>
-    <p align="center">1111-1111</p>
+    <p align="center">    <?php   echo $mostrar['telefono_empresa'];    ?>   </p> 
     <h3 align="center">Correo</h3>
-    <p align="center">supermercadoweb@gmail.com</p>
+    <p align="center"> <?php   echo $mostrar['correo_empresa'];    ?></p>
+    <h3 align="center">Direcicon</h3>
+    <p align="center"> <?php   echo $mostrar['direccion_empresa'];    ?></p>
 
     <div class="container" id="lista-productos">  
 <div class="card-deck mb-3 text-center">

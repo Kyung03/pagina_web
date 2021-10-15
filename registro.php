@@ -11,9 +11,9 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+         
     </head>
-    <body>
+    <body onload="botonOFF()">
         <!-- Responsive navbar-->
         <?php  require 'header.php'; ?>
         <!-- Header-->
@@ -24,7 +24,7 @@
                         <form action="registrar.php" method="POST"> 
                     
                             <center> 
-                            <h1 class="display-5 fw-bold">Registrar datos</h1>
+                            <h2 class="display-5 fw-bold">Registrar datos</h2>
                             <label for="nombreU">Nombre:</label>
                             <input type="text" id="nombreU" name="nombreU" value="">
                             <br><br>
@@ -46,9 +46,9 @@
                             <label for="contrasenaU">Contraseña:</label>
                             <input type="text" id="contrasenaU" name="contrasenaU" value="">
                             <br><br>
-                            <option value='0'>Seleccione</option>"
+                            
                             <select name=ciudad>
-                            <option value='0'>Seleccione</option>"
+                            <option value='0'>Seleccione</option>
                             <?php
                             include("conexion.php");
                             $con=conectar();
@@ -61,7 +61,7 @@
                             </select>
                             <br><br>
                             </center>
-                            <button class="btn btn-primary btn-lg" type="submit" >Ingresar</button>
+                            <button class="btn btn-primary btn-lg" type="submit" id="myBtn">Ingresar</button>
                         </form>
                     </div>
                 </div>
@@ -73,7 +73,8 @@
         <div class="card-deck mb-3 text-center">
         </div>
         </div>  
-        <?php  require 'footer.php'; ?>
+        <?php  require 'footer.php'; ?> 
+        
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/sweetalert2.min.js"></script>
@@ -85,3 +86,4 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+<script src="js/boton.js"></script>
