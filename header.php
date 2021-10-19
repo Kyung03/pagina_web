@@ -1,10 +1,10 @@
 <?php 
-  
+ 
 $con=conectar();
 include("consulta_empresa.php");
-$query=consulta_empresa(); 
-$result=mysqli_query($con,$query);
-$mostrar=mysqli_fetch_array($result); 
+$query_empresa=consulta_empresa(); 
+$result_empresa=mysqli_query($con,$query_empresa);
+$mostrar_empresa=mysqli_fetch_array($result_empresa); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@ $mostrar=mysqli_fetch_array($result);
 <div class="container">
             <div class="row align-items-stretch justify-content-between">
                 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                    <a class="navbar-brand" href="index.php"> <?php echo $mostrar['nombre_empresa']; ?> </a>
+                    <a class="navbar-brand" href="index.php"> <?php echo $mostrar_empresa['nombre_empresa']; ?> </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>

@@ -9,8 +9,7 @@ include("conexion.php");
 $con=conectar();
 include("consulta.php");
 $query=consulta(); 
-$result=mysqli_query($con,$query);
-		
+$result=mysqli_query($con,$query); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
