@@ -63,7 +63,7 @@ $mostrar_empresa=mysqli_fetch_array($result_empresa);
                                 </div>
                                 <li class="nav-item"><a class="nav-link"                            href="reclamos.php">                <img src="imagenes/menu/reclamo.png"    width="60" height="60"></a></li>
                             </li>
-                        </ul>
+                        </ul> 
                     </div>
                 </nav>
             </div>

@@ -1,3 +1,7 @@
+<?php 
+include("conexion.php");
+$con=conectar();  
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -49,9 +53,7 @@
                             
                             <select name=ciudad>
                             <option value='0'>Seleccione</option>
-                            <?php
-                            include("conexion.php");
-                            $con=conectar();
+                            <?php 
                             $sql2="SELECT nombre_ciudad FROM `ciudad` ";
                             $result2=mysqli_query($con,$sql2);
                             while($mostrar2=mysqli_fetch_array($result2)){
