@@ -48,6 +48,7 @@ $con=conectar();
 <div class="vertical-menu">
   <a href="#" class="active">Menu</a>
   <a href="configurar.php?valor=datos">Informacion</a>
+  <a href="configurar.php?valor=datos_usuario">Actualizar usuario</a>
   <a href="configurar.php?valor=compras">Compras</a>
   <a href="configurar.php?valor=reclamos">Reclamos</a>
 </div>
@@ -62,7 +63,7 @@ $con=conectar();
                     require 'configurar.datos.vista.php';
                     break;
                 case "inicio":
-                    echo "<h2> Aqui puede configurar toda la informacion de su cuenta y revisar las acciones realizadas </h2>";
+                    echo "<br><br><h2> Aqui puede configurar toda la informacion de su cuenta y revisar las acciones realizadas </h2>";
                     break;
                 case "compras":
                     echo "<h2> Lista de compras realizadas </h2>";
@@ -71,6 +72,9 @@ $con=conectar();
                 case "reclamos":
                     echo "<h2> Reclamos realizados </h2>";
                     require 'configurar.reclamos.vista.php';
+                    break;
+                case "datos_usuario":
+                    require 'configurar.usuario.vista.php';
                     break;
                 default:
                     break;

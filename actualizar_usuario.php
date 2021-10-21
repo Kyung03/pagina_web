@@ -9,7 +9,7 @@ $telefonocliente = $_POST['Telefono'];
 $direccioncliente = $_POST['Dirección'];
 $departamentocliente = $_POST['ciudad'];
 $usuariocliente = $_POST['Usuario'];
-//$contrasenacliente = $_POST['Contraseña'];
+//$contrasenacliente = $_POST['Contraseña']; 
 $idusuario = $_SESSION['idusuario'];
  
 $query_cliente="UPDATE  `cliente` SET 
@@ -21,9 +21,10 @@ $query_cliente="UPDATE  `cliente` SET
 where `codigo_usuario` = $idusuario";
 mysqli_query($con,$query_cliente); 
 
-$query_usuario="UPDATE  `usuario` SET 
+$query_usuario = "UPDATE  `usuario` SET 
 `usuario` = '$usuariocliente'
 where `codigo_usuario` = $idusuario";
+echo $query_usuario;
 mysqli_query($con,$query_usuario); 
 
 $_SESSION['nombre_de_usuario']      =   $usuariocliente         ;
@@ -39,7 +40,7 @@ mysqli_query($con,"CALL `procedimiento_accesos`('$idusuario','$usuariocliente','
 
 
 echo '<script type="text/javascript">
-    alert("Usuario creado correctamente.");
+    alert("Informacion actualizada correctamente.");
     window.location.assign("configurar.php?valor=inicio");
     </script>';
 ?>

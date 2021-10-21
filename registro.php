@@ -30,25 +30,25 @@ $con=conectar();
                             <center> 
                             <h2 class="display-5 fw-bold">Registrar datos</h2>
                             <label for="nombreU">Nombre:</label>
-                            <input type="text" id="nombreU" name="nombreU" value="">
+                            <input type="text" id="nombreU" name="nombreU" value="" required>
                             <br><br>
                             <label for="apellidoU">Apellido:</label>
-                            <input type="text" id="apellidoU" name="apellidoU" value="">
+                            <input type="text" id="apellidoU" name="apellidoU" value="" required>
                             <br><br>
                             <label for="correoU">Correo: </label>
-                            <input type="text" id="correoU" name="correoU" value="">
+                            <input type="text" id="correoU" name="correoU" value="" required>
                             <br><br>
                             <label for="telU">Telefono:</label>
-                            <input type="text" id="telU" name="telU" value="">
+                            <input type="text" id="telU" name="telU" value="" required>
                             <br><br>
                             <label for="dirU">Dirección:</label>
-                            <input type="text" id="dirU" name="dirU" value="">
+                            <input type="text" id="dirU" name="dirU" value="" required>
                             <br><br>
                             <label for="usuarioU">Usuario:</label>
-                            <input type="text" id="usuarioU" name="usuarioU" value="">
+                            <input type="text" id="usuarioU" name="usuarioU" value="" required>
                             <br><br>
                             <label for="contrasenaU">Contraseña:</label>
-                            <input type="password" id="contrasenaU" name="contrasenaU" value="">
+                            <input type="password" id="contrasenaU" name="contrasenaU" value="" required>
                             <br><br>
                             
                             <select name="ciudad" id="ciudad">

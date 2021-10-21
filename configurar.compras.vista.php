@@ -25,6 +25,7 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
+  <br><br>
 <table id="tabla_reclamo"> 
     
   <tr>

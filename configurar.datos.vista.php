@@ -19,9 +19,9 @@
                             
                         </tr> 
                         <tr>
-                            <th> <input type="text" name="Nombre"       value="<?php echo $_SESSION['nombre_de_cliente'];       ?> " > </th>
-                            <th> <input type="text" name="Apellido"     value="<?php echo $_SESSION['apellido_de_cliente'];     ?> " > </th>
-                            <th> <input type="text" name="Correo"       value="<?php echo $_SESSION['correo_de_cliente'];       ?> " > </th>
+                            <th> <input type="text" name="Nombre"       value="<?php echo $_SESSION['nombre_de_cliente'];       ?> " required> </th>
+                            <th> <input type="text" name="Apellido"     value="<?php echo $_SESSION['apellido_de_cliente'];     ?> " required> </th>
+                            <th> <input type="text" name="Correo"       value="<?php echo $_SESSION['correo_de_cliente'];       ?> " required> </th>
                             
                         </tr>
                     </table>
@@ -32,8 +32,8 @@
                             <th>Ciudad</th> 
                         </tr>
                         <tr>
-                            <th> <input type="text" name="Telefono"     value="<?php echo $_SESSION['telefono_de_cliente'];     ?> " > </th>
-                            <th> <input type="text" name="Dirección"    value="<?php echo $_SESSION['direccion_de_cliente'];    ?> " > </th>
+                            <th> <input type="text" name="Telefono"     value="<?php echo $_SESSION['telefono_de_cliente'];     ?> " required> </th>
+                            <th> <input type="text" name="Dirección"    value="<?php echo $_SESSION['direccion_de_cliente'];    ?> " required> </th>
                             <th>  <select name=ciudad>
                     
                     <?php
@@ -57,11 +57,9 @@
                     <table class="table">
                         <tr> 
                             <th>Usuario</th>
-                            <th>Contraseña</th>
                         </tr>
                         <tr>
-                            <th> <input type="text" name="Usuario" value = " <?php echo $_SESSION['nombre_de_usuario']; ?> "> </th>
-                            <th> <input type="text" name="Contraseña" > </th>
+                            <th> <input type="text" name="Usuario" value = " <?php echo $_SESSION['nombre_de_usuario']; ?> " required> </th>
                         </tr> 
                     </table>
                     </center>  
