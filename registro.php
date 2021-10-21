@@ -48,16 +48,16 @@ $con=conectar();
                             <input type="text" id="usuarioU" name="usuarioU" value="">
                             <br><br>
                             <label for="contrasenaU">Contraseña:</label>
-                            <input type="text" id="contrasenaU" name="contrasenaU" value="">
+                            <input type="password" id="contrasenaU" name="contrasenaU" value="">
                             <br><br>
                             
-                            <select name=ciudad>
+                            <select name="ciudad" id="ciudad">
                             <option value='0'>Seleccione</option>
                             <?php 
-                            $sql2="SELECT nombre_ciudad FROM `ciudad` ";
-                            $result2=mysqli_query($con,$sql2);
-                            while($mostrar2=mysqli_fetch_array($result2)){
-                                echo '<option value="'.$mostrar2['codigo_ciudad'].'">'.$mostrar2['nombre_ciudad'].'</option>'; 
+                            $sql_="SELECT * FROM `ciudad` ";
+                            $result_=mysqli_query($con,$sql_);
+                            while($mostrar_=mysqli_fetch_array($result_)){
+                                echo '<option value="'.$mostrar_['codigo_ciudad'].'">'.$mostrar_['nombre_ciudad'].'</option>'; 
                             }
                             ?>
                             </select>
