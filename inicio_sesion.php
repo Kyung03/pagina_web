@@ -1,7 +1,6 @@
 <?php 
 include("conexion.php");
-$con=conectar(); 
-		
+$con=conectar();  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,14 +26,14 @@ $con=conectar();
             <div class="container px-lg-5">
                 <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
                     <div class="m-4 m-lg-5">
-                        <center> 
+                        <center>  
                             <form action="validado.php" method="POST">
                             <h1 class="display-5 fw-bold">Inicio sesión </h1>
                             <label for="usuario">Usuario:</label>
-                            <input type="text" id="usuario" name="usuario" value="">
+                            <input type="text" id="usuario" name="usuario" value="" required>
                             <br><br>
                             <label for="contrasena">Contrasena:</label>
-                            <input type="password" id="contrasena" name="contrasena" value="">
+                            <input type="password" id="contrasena" name="contrasena" value="" required>
                             <br><br>
                             </center>
                             <button class="btn btn-primary btn-lg" type="submit" >Ingresar</button>

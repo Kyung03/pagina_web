@@ -2,12 +2,15 @@
 session_start();
 $usuario=$_POST["usuario"];
 $contrasena=$_POST["contrasena"]; 
-include("conexion.php");
-$con=conectar();
+include("inicio_sesion.php");
+//include("conexion.php");
+//$con=conectar();
 
 $sql="SELECT * FROM `usuario` u, `cliente` c, `rol` r, `ciudad` b WHERE u.`codigo_usuario` = c.`codigo_usuario` and u.`codigo_rol` = r.`codigo_rol` and c.`codigo_ciudad` = b.`codigo_ciudad` and `usuario` = '$usuario' ";
 $result=mysqli_query($con,$sql);
 $mostrar=mysqli_fetch_array($result);
+
+if(mysqli_num_rows($result) == 1){
     if($mostrar['estado_usuario'] == 'activo'){
         if(password_verify($contrasena,$mostrar['contrasena_usuario'])){
  
@@ -30,11 +33,16 @@ $mostrar=mysqli_fetch_array($result);
             header("Location:index.php")  ;
             }
         else{
-        echo 'contrasena incorrecta'; 
+        echo '<center><h3 style="color:red"> Contraseña Incorrecta </h3></center>';  
+        
         } 
     }else{
-        echo 'usuario inactivo'; 
+        echo '<center><h3 style="color:red"> Usuario Deshabilitado </h3></center>';  
     }
+}else{
+    echo '<center><h3 style="color:red"> Usuario Incorrecto </h3></center>';  
+}
+    
     
 	
 ?>
