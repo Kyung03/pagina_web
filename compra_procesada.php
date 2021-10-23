@@ -22,6 +22,10 @@ $verificacion = true;
 //echo $correo;
 //echo $direccion;
 //echo $mpago;
+
+
+
+
 /*
 foreach ($lista as $val) {
     echo '/codigo: '.$val;

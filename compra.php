@@ -196,8 +196,10 @@ session_start();
                                 <a href="index.php" class="btn btn-info btn-block">Seguir comprando</a>
                             </div>
                             <div class="col-xs-12 col-md-4">
-                                <button type="submit" id="button" class="btn btn-success btn-block">Realizar compra</button> 
+                                <button type="submit" id="button" class="btn btn-success btn-block" onclick="window.print()">Realizar compra</button> 
+                                
                             </div>
+                                 
                         </div>
                     
 
