@@ -36,14 +36,20 @@ if(mysqli_num_rows($result) == 1){
             </script>';
             }
         else{
-        echo '<center><h3 style="color:red"> Contraseña Incorrecta </h3></center>';  
+        echo '<script type="text/javascript">
+        alert("Contrasena  incorrecto.");
+        </script>';  
         
         } 
     }else{
-        echo '<center><h3 style="color:red"> Usuario Deshabilitado </h3></center>';  
+        echo '<script type="text/javascript">
+        alert("Usuario deshabilitado .");
+        </script>';  
     }
 }else{
-    echo '<center><h3 style="color:red"> Usuario Incorrecto </h3></center>';  
+    echo '<script type="text/javascript">
+    alert("Usuario incorrecto.");
+    </script>';  
 }
     
     

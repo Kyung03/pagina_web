@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-<footer style="width:100%; margin-left: 0px;">
+<footer  >
 <div id="footer">
     <p style="background: #2e4053; color:white; font-weight:bold; padding:15px; border:3px solid  #2e4053; margin-top:40px; margin-bottom:40px; text-align:center; font-size:22px; border-radius:10px;">
     <input type="button" value="Acerca de nosotros" onclick="location.href='contacto.php'">

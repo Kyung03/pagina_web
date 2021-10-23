@@ -28,6 +28,7 @@ $con=conectar();
                     <div class="m-4 m-lg-5">
                         <center>  
                             <form action="validado.php" method="POST">
+                            
                             <h1 class="display-5 fw-bold">Inicio sesión </h1>
                             <label for="usuario">Usuario:</label>
                             <input type="text" id="usuario" name="usuario" value="" required>
