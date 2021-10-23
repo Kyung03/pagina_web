@@ -30,7 +30,10 @@ if(mysqli_num_rows($result) == 1){
             echo $_SESSION['nombre_de_usuario'];
             mysqli_query($con,"CALL `procedimiento_accesos`('$cod','$us','$rol','Ingreso')");
             
-            header("Location:index.php")  ;
+            echo '<script type="text/javascript">
+            alert("Ingreso correcto.");
+            window.location.assign("index.php");
+            </script>';
             }
         else{
         echo '<center><h3 style="color:red"> Contraseña Incorrecta </h3></center>';  

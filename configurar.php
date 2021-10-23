@@ -48,7 +48,7 @@ $con=conectar();
 <div class="vertical-menu">
   <a href="#" class="active">Menu</a>
   <a href="configurar.php?valor=datos">Informacion</a>
-  <a href="configurar.php?valor=datos_usuario">Actualizar usuario</a>
+  <a href="configurar.php?valor=datos_usuario">Cambiar contraseña</a>
   <a href="configurar.php?valor=compras">Compras</a>
   <a href="configurar.php?valor=reclamos">Reclamos</a>
 </div>

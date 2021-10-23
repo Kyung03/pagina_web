@@ -19,7 +19,7 @@
                             <th>Re escribir contraseña</th>
                         </tr>
                         <tr>
-                            <th> <input type="text" name="Usuario" value = " <?php echo $_SESSION['nombre_de_usuario']; ?> " required> </th>
+                            <th> <input type="text" name="Usuario" value = "<?php echo $_SESSION['nombre_de_usuario']; ?>" required> </th>
                             <th> <input type="password" name="Contraseña" required> </th>
                             <th> <input type="password" name="Contraseña2" required> </th>
                         </tr> 
