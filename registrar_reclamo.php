@@ -17,7 +17,7 @@ $sql2="SELECT codigo_cliente FROM cliente where codigo_usuario = $idusuario ";
 $sql = "INSERT INTO `reclamos` (`descripcion_reclamo`, `codigo_tipo`,`codigo_estado`,codigo_cliente) 
 VALUES ('$descripcion', '$tipo_reclamo' ,'1',$codigo_cliente)";
 
-echo $sql;
+//echo $sql;
 mysqli_query($con,$sql);  
 $last_id = $con->insert_id;
 

@@ -69,7 +69,7 @@ for ($x = 0; $x < count($lista); $x++) {
               $cliente = $_SESSION['idcliente'];
               $query_factura = "INSERT INTO `factura`( `total`, `fecha_factura`, `codigo_cliente`, `metodo_pago` ) 
               VALUES ($total, sysdate(), $cliente,'$mpago' )";
-              echo $query_factura;
+              //echo $query_factura;
               mysqli_query($con, $query_factura); 
               $last_id = $con->insert_id;
         }else{
@@ -78,7 +78,7 @@ for ($x = 0; $x < count($lista); $x++) {
             /* SE CREA LA FACTURA */
             $query_factura = "INSERT INTO `factura`( `total`, `fecha_factura`, `metodo_pago` ) 
             VALUES ($total, sysdate(),'$mpago' )";
-            echo $query_factura;
+            //echo $query_factura;
             mysqli_query($con, $query_factura); 
             $last_id = $con->insert_id;
         }

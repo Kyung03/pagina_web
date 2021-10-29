@@ -25,8 +25,8 @@ VALUES ('$nombrecliente', '$apellidocliente', $telefonocliente , '$correocliente
 mysqli_query($con,$sql2); 
 
 mysqli_query($con,"CALL `procedimiento_accesos`('$last_id','$usuariocliente','cliente','Creacion')");
-echo $sql;
-echo $sql2;
+//echo $sql;
+//echo $sql2;
 
 echo '<script type="text/javascript">
     alert("Usuario creado correctamente.");
