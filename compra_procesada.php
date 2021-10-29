@@ -59,10 +59,7 @@ for ($x = 0; $x < count($lista); $x++) {
         //mysqli_query($con, $sql);
     }
     if($verificacion == false){ 
-        echo '<script type="text/javascript">
-        alert("uno de los productos excede la cantidad de existencia.");
-        window.location.assign("index.php");
-        </script>';
+        echo 'fallo';
     }else{
         if(isset($_SESSION['idusuario']) ){ 
             //$sql=" update producto set cantidad_producto = (cantidad_producto-$resta) where codigo_producto=$idproducto and (cantidad_producto>=$resta)";
@@ -93,10 +90,7 @@ for ($x = 0; $x < count($lista); $x++) {
         echo $sql;
         mysqli_query($con, $sql);
         }
-        echo '<script type="text/javascript">
-        alert("compra realizada correctamente.");
-        window.location.assign("index.php");
-        </script>';
+        echo 'compra realizada correctamente.';
     }
  
 ?>

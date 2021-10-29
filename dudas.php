@@ -1,6 +1,7 @@
 <?php 
 include("conexion.php");
-$con=conectar();  
+$con=conectar(); 
+session_start(); 
 $query_duda="select * from preguntas";
 $result_duda=mysqli_query($con,$query_duda); 
 ?>

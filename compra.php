@@ -265,7 +265,15 @@ session_start();
                     mpago:mpago
                 },
                success:function(data){
-                   alert(data);
+                   //alert(data);
+                   //location.replace("index.php");
+                   if(data.trim() == "fallo"){
+                    alert("Uno de los productos excede las existencias");
+                    window.location.replace("index.php");
+                    }else{
+                    alert("compra realizada correctamente.");
+                    window.location.replace("index.php");
+                    }
                }
             });
         });
